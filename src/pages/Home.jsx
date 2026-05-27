@@ -1,5 +1,6 @@
 ﻿import { Link } from "react-router-dom";
 
+// Import icons
 import {
   Brain,
   ChevronRight,
@@ -11,35 +12,38 @@ import {
   Briefcase,
   Lightbulb,
   Quote,
+  Sparkles,
+  Zap,
+  Star,
 } from "lucide-react";
 
+// Import components
 import StatCard from "../components/StatCard";
 import FeatureCard from "../components/FeatureCard";
 
+// Testimonial data
 const testimonials = [
   {
     name: "Sachin Patel",
     role: "Frontend Dev @ Google",
     avatar: "SC",
     text: "AceRound's AI feedback pointed out gaps I'd never noticed.",
-    stars: 5,
   },
   {
     name: "Sanjay Singh",
     role: "Backend Dev @ Amazon",
     avatar: "MJ",
     text: "The timed quizzes made my prep much more targeted.",
-    stars: 5,
   },
   {
     name: "Priya Sharma",
     role: "Full Stack Dev @ Microsoft",
     avatar: "PS",
     text: "AceRound's analytics showed me exactly where to improve.",
-    stars: 5,
   },
 ];
 
+// Feature data
 const features = [
   {
     icon: Brain,
@@ -63,6 +67,7 @@ const features = [
   },
 ];
 
+// Stats data
 const stats = [
   { icon: Users, value: "10K+", label: "Active Users" },
   { icon: TrendingUp, value: "95%", label: "Success Rate" },
@@ -70,10 +75,11 @@ const stats = [
   { icon: Clock, value: "15min", label: "Per Session" },
 ];
 
+// Home Page Component
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0a0f1e] relative overflow-hidden">
-      {/* Animated Background Glow Effects */}
+      {/* Background glow effects */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-32 -right-20 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] animate-float" />
         <div className="absolute top-1/2 -left-40 w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[140px] animate-float" style={{ animationDelay: '1s' }} />
@@ -82,44 +88,57 @@ export default function Home() {
         <div className="absolute bottom-1/3 left-2/3 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl animate-pulse-slow" />
       </div>
 
+      {/* Floating icons in hero section */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <Brain className="absolute top-20 left-20 h-8 w-8 text-blue-500/20 animate-floatIcon" style={{ animationDelay: '0s' }} />
+        <Zap className="absolute top-40 right-32 h-6 w-6 text-purple-500/20 animate-floatIcon" style={{ animationDelay: '1s' }} />
+        <Star className="absolute bottom-32 left-32 h-5 w-5 text-pink-500/20 animate-floatIcon" style={{ animationDelay: '2s' }} />
+        <Sparkles className="absolute top-1/3 right-1/4 h-7 w-7 text-cyan-500/20 animate-floatIcon" style={{ animationDelay: '3s' }} />
+        <BarChart3 className="absolute bottom-20 right-20 h-9 w-9 text-blue-500/15 animate-floatIcon" style={{ animationDelay: '4s' }} />
+      </div>
+
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#0a0f1e] via-[#0f172a] to-[#0a0f1e] py-28 lg:py-40">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            {/* Hero badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm text-blue-300 font-medium mb-8 animate-fadeInUp">
               <Brain className="h-4 w-4 text-blue-400 animate-pulse" />
               AI-Powered Interview Prep
             </div>
 
+            {/* Hero heading */}
             <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-8 animate-fadeInUp stagger-1">
               Ace Every{" "}
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradientShift">
                 Interview Question
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-300 mb-12 max-w-3xl mx-auto animate-fadeInUp stagger-2">
-              Practice with role-specific questions and get instant AI-powered feedback.
-            </p>
+             {/* Hero description with typewriter effect */}
+             <p className="text-lg md:text-xl text-slate-300 mb-12 max-w-3xl mx-auto animate-fadeInUp stagger-2 typewriter-effect">
+               Practice with role-specific questions and get instant AI-powered feedback.
+             </p>
 
-            <div className="flex flex-col sm:flex-row gap-5 justify-center mb-20 animate-fadeInUp stagger-3">
-              <Link
-                to="/interview"
-                className="group px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-2xl shadow-[0_0_40px_rgba(59,130,246,0.35)] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-500 flex items-center justify-center gap-3"
-              >
-                <Play className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                Start Free Interview
-                <ChevronRight className="h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
-              </Link>
+             {/* Hero buttons */}
+             <div className="p-4 flex flex-col sm:flex-row gap-5 justify-center mb-20 animate-fadeInUp stagger-5">
+               <Link
+                 to="/interview"
+                 className="group px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold text-lg rounded-2xl shadow-[0_0_40px_rgba(59,130,246,0.35)] hover:scale-[1.03] hover:-translate-y-1 transition-all duration-500 flex items-center justify-center gap-3 ripple-btn magnetic-hover"
+               >
+                 <Play className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                 Start Free Interview
+                 <ChevronRight className="h-5 w-5 group-hover:translate-x-2 transition-transform duration-300" />
+               </Link>
 
-              <Link
-                to="/dashboard"
-                className="px-10 py-5 bg-slate-800/70 backdrop-blur-md border border-slate-600/60 text-white font-bold text-lg rounded-2xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-500 flex items-center justify-center gap-2 group"
-              >
-                <BarChart3 className="h-5 w-5 text-purple-400 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300" />
-                View Dashboard
-              </Link>
-            </div>
+               <Link
+                 to="/dashboard"
+                 className="px-10 py-5 bg-slate-800/70 backdrop-blur-md border border-slate-600/60 text-white font-bold text-lg rounded-2xl hover:scale-[1.03] hover:-translate-y-1 transition-all duration-500 flex items-center justify-center gap-2 group ripple-btn magnetic-hover"
+               >
+                 <BarChart3 className="h-5 w-5 text-purple-400 group-hover:scale-90 group-hover:rotate-1 transition-all duration-300" />
+                 View Dashboard
+               </Link>
+             </div>
           </div>
         </div>
       </section>
@@ -144,6 +163,7 @@ export default function Home() {
       {/* FEATURES SECTION */}
       <section className="py-24 bg-[#0f172a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Features header */}
           <div className="text-center mb-16 animate-fadeInUp">
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
               Why Choose AceRound?
@@ -153,6 +173,7 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Features grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => (
               <FeatureCard
@@ -170,6 +191,7 @@ export default function Home() {
       {/* TESTIMONIALS SECTION */}
       <section className="py-24 bg-[#0a0f1e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Testimonials header */}
           <div className="text-center mb-16 animate-fadeInUp">
             <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
               Success Stories
@@ -179,11 +201,12 @@ export default function Home() {
             </p>
           </div>
 
+          {/* Testimonials grid */}
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className={`bg-slate-800/70 backdrop-blur-sm rounded-xl shadow-lg p-8 border border-slate-700/50 animate-fadeInUp stagger-${index + 1} group cursor-pointer`}
+                className={`bg-slate-800/50 rounded-xl shadow-lg p-8 border border-slate-700/50 animate-fadeInUp stagger-${index + 1} group cursor-pointer`}
               >
                 <Quote className="h-8 w-8 text-blue-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
                 <p className="text-slate-300 mb-6 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
@@ -206,10 +229,12 @@ export default function Home() {
 
       {/* CTA SECTION */}
       <section className="py-24 bg-gradient-to-br from-blue-900/30 to-purple-900/30 relative overflow-hidden">
+        {/* CTA background effects */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl animate-float" />
           <div className="absolute bottom-10 right-10 w-48 h-48 bg-purple-500/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '1.5s' }} />
         </div>
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <Lightbulb className="h-16 w-16 text-amber-400 mx-auto mb-6 animate-pulse" />
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 animate-fadeInUp">

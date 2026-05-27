@@ -51,14 +51,14 @@ function RoleCard({ role: roleName, isActive, onClick }) {
       tabIndex={0}
       onClick={onClick}
       onKeyDown={(e) => { if (e.key === 'Enter') onClick(); }}
-      className={`group relative flex flex-col p-5 rounded-xl border transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-xl
+      className={`group relative flex flex-col p-5 rounded-xl border transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-xl magnetic-hover parallax-tilt card-glow
         ${isActive
           ? 'bg-blue-600/12 border-blue-500/55 shadow-lg shadow-blue-500/10'
-          : 'bg-slate-800/70 border-slate-700/50 hover:border-blue-500/40 hover:bg-slate-700/60'
+          : 'bg-slate-800/50 border-white/10 hover:border-blue-500/40 hover:bg-slate-700/60'
         }`}
     >
       <div className="flex items-start gap-3">
-        <div className={`shrink-0 w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110
+        <div className={`shrink-0 w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3
           ${isActive
             ? 'bg-gradient-to-br from-blue-500 to-purple-600 shadow-md shadow-blue-500/25'
             : 'bg-slate-700/80 group-hover:bg-gradient-to-br group-hover:from-blue-500/40 group-hover:to-purple-600/40'
@@ -278,11 +278,11 @@ function InterviewPlayer({ role, onFinish }) {
             <p className="text-sm text-slate-400">Question {currentQuestion + 1} of {questions.length}</p>
           </div>
           <div className="flex items-center gap-4">
-            <div className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all ${
-              timeLeft <= 120 ? 'bg-red-900/50 text-red-300 border-red-800 animate-timerPulse'
+            <div className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all
+              ${timeLeft <= 120 ? 'bg-red-900/50 text-red-300 border-red-800 animate-timerPulse'
                 : timeLeft <= 300 ? 'bg-orange-900/30 text-orange-300 border-orange-800'
                 : 'bg-blue-900/30 text-blue-300 border-blue-800'
-            }`}
+              }`}
             >
               <Clock className="h-5 w-5" />
               <span className="font-mono font-semibold">{formatTime(timeLeft)}</span>

@@ -120,9 +120,7 @@ html {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.animate-pulse-slow {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
+
 
 .animate-float {
   animation: float 3s ease-in-out infinite;

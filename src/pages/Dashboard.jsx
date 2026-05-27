@@ -71,13 +71,13 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0f1e] py-10 relative overflow-hidden">
-      <div className="absolute top-20 right-20 w-72 h-72 bg-blue-500/4 rounded-full blur-3xl animate-[float_6s_ease-in-out_infinite]" />
-      <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-500/4 rounded-full blur-3xl animate-[float_6s_ease-in-out_infinite_2s]" />
+      <div className="absolute top-20 right-20 w-72 h-72 bg-blue-500/4 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-purple-500/4 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Welcome */}
         <div className="mb-10 animate-fadeInUp">
-          <h1 className="text-3xl font-bold text-white mb-2">Welcome back, Candidate!</h1>
+          <h1 className="text-3xl font-bold text-white mb-2 animate-gradientShift">Welcome back, Candidate!</h1>
           <p className="text-slate-400">Track your interview preparation progress and continue practicing.</p>
         </div>
 
@@ -93,7 +93,7 @@ const Dashboard = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
             {/* Start New Interview */}
-<div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-[length:200%_100%] rounded-2xl shadow-xl p-8 text-white animate-fadeInUp hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] hover:-translate-y-1 transition-all duration-500">
+<div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-[length:200%_100%] rounded-2xl shadow-xl p-8 text-white animate-fadeInUp hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] hover:-translate-y-1 transition-all duration-500 magnetic-hover">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-5">
             <div>
               <h2 className="text-2xl font-bold mb-2">Ready for another interview?</h2>
@@ -103,7 +103,7 @@ const Dashboard = () => {
             </div>
             <Link
               to="/interview"
-              className="flex items-center gap-2 px-7 py-3 bg-white/15 backdrop-blur-md border border-white/20 text-white font-semibold rounded-xl hover:bg-white/25 hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-500 shrink-0 group"
+              className="flex items-center gap-2 px-7 py-3 bg-white/10 backdrop-blur-xl border border-white/10 text-white font-semibold rounded-xl hover:bg-white/20 hover:shadow-lg hover:scale-105 hover:-translate-y-1 transition-all duration-500 shrink-0 group magnetic-hover"
             >
               <Play className="h-5 w-5 fill-white/50 group-hover:scale-110 transition-transform duration-300" />
               Start Interview
@@ -112,10 +112,10 @@ const Dashboard = () => {
         </div>
 
             {/* Recent Interviews */}
-            <div className="bg-[#111827]/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 border border-slate-700/50 animate-fadeInUp stagger-1">
+            <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-lg p-6 border border-white/10 animate-fadeInUp stagger-1">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-semibold text-white">Recent Interviews</h2>
-                <Link to="/results" className="text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors duration-300 group">
+                <Link to="/results" className="text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 transition-colors duration-300 group magnetic-hover">
                   View All <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
@@ -123,7 +123,7 @@ const Dashboard = () => {
               {recentInterviews.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-slate-400 mb-5">No interviews completed yet.</p>
-                  <Link to="/interview" className="inline-flex items-center gap-2 px-5 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 hover:scale-105 hover:-translate-y-1 transition-all duration-300 group">
+                  <Link to="/interview" className="inline-flex items-center gap-2 px-5 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 hover:scale-105 hover:-translate-y-1 transition-all duration-300 group magnetic-hover">
                     <Play className="h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
                     Start Your First Interview
                   </Link>
@@ -133,7 +133,7 @@ const Dashboard = () => {
                   {recentInterviews.map((interview) => {
                       const ringMap = { blue: 'ring-blue-500/30', green: 'ring-green-500/30', purple: 'ring-purple-500/30', orange: 'ring-orange-500/30' };
                       return (
-                        <div key={interview.id} className="flex items-center gap-4 p-4 bg-[#1e293b]/50 rounded-xl hover:bg-[#1e293b] hover:-translate-y-1 transition-all duration-300 border border-slate-700 hover:border-blue-500/50">
+                        <div key={interview.id} className="flex items-center gap-4 p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:border-blue-500/50 transition-all duration-300 magnetic-hover">
                           <div className={`p-3 rounded-xl bg-slate-700/80 ring-2 ${ringMap[interview.color]} transition-all duration-300 hover:scale-110`}>
                             <interview.icon className="h-5 w-5 text-white" />
                           </div>
@@ -154,7 +154,7 @@ const Dashboard = () => {
 
             {/* Analytics */}
             {filteredByDate.length > 0 && (
-              <div className="bg-[#111827] rounded-2xl shadow-md p-6 border border-slate-700 animate-fadeInUp stagger-2">
+              <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-md p-6 border border-white/10 animate-fadeInUp stagger-2">
                 <h2 className="text-xl font-semibold text-white mb-6">Analytics</h2>
 
                 <div className="space-y-8">
@@ -215,7 +215,7 @@ const Dashboard = () => {
           {/* Sidebar */}
           <div className="space-y-8">
             {/* Performance Summary */}
-            <div className="bg-[#111827] rounded-2xl shadow-md p-6 border border-slate-700 animate-fadeInUp stagger-2">
+            <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-md p-6 border border-white/10 animate-fadeInUp stagger-2">
               <h2 className="text-xl font-semibold text-white mb-6">Performance Summary</h2>
               <div className="space-y-4">
                 {[
@@ -238,7 +238,7 @@ const Dashboard = () => {
             </div>
 
             {/* AI Study Tips */}
-            <div className="bg-gradient-to-br from-blue-900/25 to-indigo-900/20 rounded-2xl shadow-md p-6 border border-blue-800/40 animate-fadeInUp stagger-3">
+            <div className="bg-gradient-to-br from-blue-900/25 to-indigo-900/20 rounded-2xl shadow-md p-6 border border-blue-800/40 animate-fadeInUp stagger-3 magnetic-hover">
               <h2 className="text-xl font-semibold text-white mb-5 flex items-center gap-2">
                 <Lightbulb className="h-5 w-5 text-amber-400" />
                 Study Tips
@@ -259,17 +259,17 @@ const Dashboard = () => {
             </div>
 
             {/* Upcoming Reminders */}
-            <div className="bg-[#111827] rounded-2xl shadow-md p-6 border border-slate-700 animate-fadeInUp stagger-4">
+            <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl shadow-md p-6 border border-white/10 animate-fadeInUp stagger-4">
               <h2 className="text-xl font-semibold text-white mb-5">Reminders</h2>
               <div className="space-y-3">
-                <div className="flex items-start gap-3 p-3.5 bg-blue-900/25 rounded-xl border border-blue-800/40">
+                <div className="flex items-start gap-3 p-3.5 bg-blue-900/25 rounded-xl border border-blue-800/40 hover:scale-[1.02] transition-transform duration-300 magnetic-hover">
                   <Calendar className="h-5 w-5 text-blue-400 mt-0.5 shrink-0" />
                   <div>
                     <p className="text-sm font-medium text-white">Practice Session</p>
                     <p className="text-xs text-slate-400">Tomorrow at 10:00 AM</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3 p-3.5 bg-purple-900/25 rounded-xl border border-purple-800/40">
+                <div className="flex items-start gap-3 p-3.5 bg-purple-900/25 rounded-xl border border-purple-800/40 hover:scale-[1.02] transition-transform duration-300 magnetic-hover">
                   <Target className="h-5 w-5 text-purple-400 mt-0.5 shrink-0" />
                   <div>
                     <p className="text-sm font-medium text-white">Weekly Goal</p>
