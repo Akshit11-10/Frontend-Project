@@ -119,9 +119,9 @@ const Footer = () => {
           </p>
 
           <p className="text-xs text-slate-600 flex items-center">
-            Built with
-            <Heart className="inline h-3 w-3 text-red-500 mx-1" />
-            for developers everywhere.
+            Build for developers
+            <Heart className="inine h-3 w-3 text-red-500 mx-1" />
+            Any time and Anywhere.
           </p>
         </div>
       </div>
