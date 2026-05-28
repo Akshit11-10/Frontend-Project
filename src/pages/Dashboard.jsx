@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import {
   Play, Clock, Target, TrendingUp, Award, Calendar,
-  ChevronRight, Code, Server, Layers, Atom, User, Lightbulb
+  ChevronRight, Code, Server, Layers, Atom, User, Lightbulb,LogOut, Menu, X, Brain
 } from 'lucide-react';
 import {
   LineChart, Line, PieChart as RePieChart, Pie, Cell,
@@ -51,8 +51,9 @@ const studyTips = [
   'Track trends — improving scores show your progress is working.',
 ];
 
+
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user} = useAuth();
 
   const [interviewHistory, setInterviewHistory] = useState([]);
   const [stats, setStats] = useState({
@@ -130,7 +131,8 @@ const Dashboard = () => {
     Score: r.score,
   }));
 
-  return (
+  return ( 
+    
     <div className="min-h-screen bg-[#0a0f1e] py-10 relative overflow-hidden">
 
       {/* Background blobs */}
@@ -146,7 +148,6 @@ const Dashboard = () => {
           </h1>
           <p className="text-slate-400">Track your interview preparation progress and continue practicing.</p>
         </div>
-
         {/* Stats row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           <StatCard icon={Target}     label="Interviews Completed" value={stats.totalInterviews.toString()} color="blue" />
@@ -155,8 +156,11 @@ const Dashboard = () => {
           <StatCard icon={Award}      label="Best Score"           value={`${stats.bestScore}%`}            color="orange" />
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        
 
+        
+
+        <div className="grid lg:grid-cols-3 gap-8">
           {/* Left column */}
           <div className="lg:col-span-2 space-y-8">
 
@@ -177,6 +181,7 @@ const Dashboard = () => {
                   Start Interview
                 </Link>
               </div>
+                    
             </div>
 
             {/* Recent interviews list */}

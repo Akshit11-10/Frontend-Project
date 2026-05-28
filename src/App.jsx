@@ -20,8 +20,7 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-       <Navbar />
-       <PremiumEffects />
+        <PremiumEffects />
         <Routes>
           <Route path="/"         element={<Home />} />
           <Route path="/login"    element={<Login />} />
