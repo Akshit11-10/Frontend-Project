@@ -5,8 +5,8 @@ export const frontendQuestions = [
     question: "What is the virtual DOM in React?",
     options: [
       "A direct copy of the HTML DOM",
-      "A lightweight JavaScript representation of the DOM",
       "A browser plugin for React",
+      "A lightweight JavaScript representation of the DOM",
       "A CSS framework"
     ],
     correctAnswer: 1,
@@ -17,8 +17,8 @@ export const frontendQuestions = [
     question: "What is the difference between let and var in JavaScript?",
     options: [
       "No difference",
-      "let is block-scoped, var is function-scoped",
       "var is block-scoped, let is function-scoped",
+      "let is block-scoped, var is function-scoped",
       "let can be redeclared, var cannot"
     ],
     correctAnswer: 1,
@@ -28,8 +28,8 @@ export const frontendQuestions = [
     id: 3,
     question: "What is CSS Flexbox?",
     options: [
-      "A CSS grid system",
       "A one-dimensional layout method",
+      "A CSS grid system",
       "A JavaScript library",
       "A CSS preprocessor"
     ],
@@ -40,8 +40,8 @@ export const frontendQuestions = [
     id: 4,
     question: "What are React Hooks?",
     options: [
-      "External libraries for React",
       "Functions that let you use state in functional components",
+      "External libraries for React",
       "CSS styling tools",
       "Testing utilities"
     ],
@@ -53,8 +53,8 @@ export const frontendQuestions = [
     question: "What is the purpose of the 'key' prop in React lists?",
     options: [
       "To style list items",
-      "To uniquely identify each item for efficient re-rendering",
       "To add keyboard shortcuts",
+      "To uniquely identify each item for efficient re-rendering",
       "To lock list items"
     ],
     correctAnswer: 1,
@@ -65,8 +65,8 @@ export const frontendQuestions = [
     question: "What does CSS stand for?",
     options: [
       "Computer Style Sheets",
-      "Cascading Style Sheets",
       "Creative Style Sheets",
+      "Cascading Style Sheets",
       "Colorful Style Sheets"
     ],
     correctAnswer: 1,
@@ -113,8 +113,8 @@ export const frontendQuestions = [
     question: "What is the purpose of useEffect hook?",
     options: [
       "To create state variables",
-      "To handle side effects in functional components",
       "To style components",
+      "To handle side effects in functional components",
       "To validate props"
     ],
     correctAnswer: 1,
