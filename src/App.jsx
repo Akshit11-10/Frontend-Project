@@ -1,14 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AuthProvider from "./components/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
-import PremiumEffects from './components/PremiumEffects';
 
-
-// import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Navbar from './components/Navbar';
-import './index.css';
-import Footer from './components/Footer';
 import Home      from "./pages/Home";
 import Login     from "./pages/Login";
 import Register  from "./pages/Register";
@@ -20,19 +13,21 @@ export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <PremiumEffects />
         <Routes>
-          <Route path="/"         element={<Home />} />
+          {/* Public routes */}
           <Route path="/login"    element={<Login />} />
           <Route path="/register" element={<Register />} />
 
+          {/* All other routes require login */}
           <Route element={<ProtectedRoute />}>
+            <Route path="/"          element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/interview" element={<Interview />} />
             <Route path="/results"   element={<Results />} />
           </Route>
 
-          <Route path="*" element={<Navigate to="/" replace />} />
+          {/* Anything unknown goes to login */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

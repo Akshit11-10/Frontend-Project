@@ -13,14 +13,11 @@ export function useAuthState() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem("auth_user");
-      if (stored) setUser(JSON.parse(stored));
-    } catch {
-      localStorage.removeItem("auth_user");
-    } finally {
-      setLoading(false);
-    }
+    // Always clear session on app start so login page shows first
+    localStorage.removeItem("auth_user");
+    localStorage.removeItem("auth_token");
+    setUser(null);
+    setLoading(false);
   }, []);
 
   const login = async (email, password) => {
